@@ -29,8 +29,14 @@ RSpec.describe Account do
     expect(account.credit).to eq(20)
   end
 
-  it 'record the transaction' do
+  it 'deposit record the transaction' do
     account.deposit(20)
     expect(account.history).to eq(["\n#{time} || 20.00 || || 20.00"])
+  end
+
+  it 'credit record the transaction' do
+    account.withdrawal(20)
+    expect(account.history).to eq(["\n#{time} || || 20.00 || -20.00"])
   end 
+
 end

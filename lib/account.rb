@@ -14,8 +14,8 @@ class Account
   end
 
   def withdrawal(arg)
-    @debit = arg
-    @balance -= @debit
+    @history << "\n#{time_format} || || #{@debit = arg}.00 || #{@balance -= @debit}.00"
+    return
   end
 
   private
