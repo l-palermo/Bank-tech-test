@@ -1,5 +1,14 @@
 # Bank Tech Test
 
+The app simulates the functionalities of a common bank account where the user can: 
+- deposit & withdrawal
+
+## How to use it
+
+* To use the software clone this repository on your local machine. Run `bundle install` to install the dependencies.
+* To run tests type on the cmd line `rspec`
+* To run the app type on the cmd line `irb -r './lib/account.rb'`
+
 ## Specification
 
 ### Requirements
