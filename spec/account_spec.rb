@@ -1,9 +1,8 @@
 require 'account'
 
 RSpec.describe Account do
-
   subject(:account) { Account.new }
-  subject(:time) { Time.now.strftime('%d/%m/%y') } 
+  subject(:time) { Time.now.strftime('%d/%m/%y') }
 
   it 'has a balance attaribute eq 0' do
     expect(account.balance).to eq(0)
@@ -37,6 +36,11 @@ RSpec.describe Account do
   it 'credit record the transaction' do
     account.withdrawal(20)
     expect(account.history).to eq(["\n#{time} || || 20.00 || -20.00"])
-  end 
+  end
 
+  it 'print the statement with the correct format' do
+    account.deposit(20)
+    account.statement
+    expect(account._statement).to eq("date || credit || debit || balance\n#{time} || 20.00 || || 20.00")
+  end
 end

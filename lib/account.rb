@@ -1,5 +1,6 @@
+# class account
 class Account
-  attr_reader :balance, :debit, :credit, :history
+  attr_reader :balance, :debit, :credit, :history, :_statement
 
   def initialize
     @balance = 0
@@ -18,8 +19,14 @@ class Account
     return
   end
 
+  def statement
+    @_statement = 'date || credit || debit || balance' + @history.join
+    puts @_statement
+  end
+
   private
+
   def time_format
     Time.now.strftime('%d/%m/%y')
   end
-end 
+end
