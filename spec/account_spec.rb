@@ -18,8 +18,13 @@ RSpec.describe Account do
     expect(account.balance).to eq(-20)
   end
 
-  it 'has a debit property that stores keep note of the taken money' do
+  it 'has a debit property that keep note of the taken money' do
     account.withdrawal(20)
     expect(account.debit).to eq(20)
+  end
+
+  it 'has a credit property that keep note of the added money' do
+    account.deposit(20)
+    expect(account.credit).to eq(20)
   end
 end
