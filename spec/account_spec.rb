@@ -12,4 +12,9 @@ RSpec.describe Account do
     account.deposit(20)
     expect(account.balance).to eq(20)
   end
+
+  it 'withdrawal the required ammount' do
+    account.withdrawal(20)
+    expect(account.balance).to eq(-20)
+  end
 end
