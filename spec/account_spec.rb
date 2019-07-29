@@ -3,6 +3,7 @@ require 'account'
 RSpec.describe Account do
 
   subject(:account) { Account.new }
+  subject(:time) { Time.now.strftime('%d/%m/%y') } 
 
   it 'has a balance attaribute eq 0' do
     expect(account.balance).to eq(0)
@@ -27,4 +28,9 @@ RSpec.describe Account do
     account.deposit(20)
     expect(account.credit).to eq(20)
   end
+
+  it 'record the transaction' do
+    account.deposit(20)
+    expect(account.history).to eq(["\n#{time} || 20.00 || || 20.00"])
+  end 
 end
