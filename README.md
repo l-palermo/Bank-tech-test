@@ -1,10 +1,13 @@
 # Bank Tech Test
-
 The app simulates the functionalities of a common bank account where the user can: 
 - deposit & withdrawal
 
-## How to use it
+## Approach & code structure
+I have started writing the fully working app in one class to understand the logic following a TDD process.
+The code has then been refactored creating four classes in total to separate concerns.
+This allows the application to be easily implemented and used in different environments.
 
+## How to use it
 * To use the software clone this repository on your local machine. Run `bundle install` to install the dependencies.
 * To run tests type on the cmd line `rspec`
 * To run the app type on the cmd line `irb -r './lib/account.rb'`
@@ -19,5 +22,4 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 ## Example of usage
-
 ![](images/ss.png)
