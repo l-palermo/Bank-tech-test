@@ -1,8 +1,8 @@
 # class account
 class Account
-  attr_reader :balance, :debit, :credit, :history, :_statement
+  attr_reader :_statement#, :balance, :debit, :credit, :history
 
-  def initialize
+  def initialize()
     @balance = 0
     @debit = 0
     @credit = 0
