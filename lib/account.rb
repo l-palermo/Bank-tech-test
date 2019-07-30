@@ -1,22 +1,21 @@
 # class account
-class Account
-  attr_reader :_statement#, :balance, :debit, :credit, :history
+require 'transaction'
 
-  def initialize()
-    @balance = 0
-    @debit = 0
-    @credit = 0
+class Account
+  attr_reader :_statement, :balance#, :debit, :credit, :history
+
+  def initialize(transaction = Transaction.new)
     @history = []
+    @balance
+    @transaction = transaction
   end
 
   def deposit(arg)
-    @history << "\n#{time_format} || #{@credit = arg}.00 || || #{@balance += @credit}.00"
-    return 
+    @history << @transaction.credit(arg)
   end
 
   def withdrawal(arg)
-    @history << "\n#{time_format} || || #{@debit = arg}.00 || #{@balance -= @debit}.00"
-    return
+    @history << @transaction.debit(arg)
   end
 
   def statement
@@ -24,9 +23,4 @@ class Account
     puts @_statement
   end
 
-  private
-
-  def time_format
-    Time.now.strftime('%d/%m/%y')
-  end
 end
