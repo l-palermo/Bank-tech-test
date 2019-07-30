@@ -10,5 +10,4 @@ RSpec.describe Balance do
   it 'increase the balance' do
     expect(balance.minus(20)).to eq(-20)
   end
-
 end

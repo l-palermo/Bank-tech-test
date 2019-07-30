@@ -1,5 +1,5 @@
+# Class Balance
 class Balance
-
   def initialize
     @pot = 0
   end

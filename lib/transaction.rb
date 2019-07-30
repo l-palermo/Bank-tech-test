@@ -1,5 +1,5 @@
 require './lib/balance'
-
+# class Transaction
 class Transaction
   attr_reader :balance
 

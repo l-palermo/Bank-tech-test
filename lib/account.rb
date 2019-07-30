@@ -1,23 +1,21 @@
-# class account
 require './lib/transaction'
-
+require './lib/statement'
+# class account
 class Account
-
-  def initialize(transaction = Transaction.new)
-    @history = []
+  def initialize(transaction = Transaction.new, statement = Statement.new)
+    @statement = statement
     @transaction = transaction
   end
 
   def deposit(arg)
-    @history << @transaction.credit(arg)
+    @statement.history << @transaction.credit(arg)
   end
 
   def withdrawal(arg)
-    @history << @transaction.debit(arg)
+    @statement.history << @transaction.debit(arg)
   end
 
   def statement
-    "date || credit || debit || balance\n" + @history.join("\n")
+    @statement.create
   end
-
 end
