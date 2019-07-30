@@ -1,15 +1,18 @@
 require 'transaction'
 
 RSpec.describe Transaction do
-  subject(:transaction) { Transaction.new }
+  subject(:balance) { double "Balance" }
+  subject(:transaction) { Transaction.new(balance) }
   subject(:time) { Time.now.strftime('%d/%m/%y') }
 
   it 'returns a string showing the transaction' do
-    expect(transaction.credit(20)).to eq("\n#{time} || 20.00 || || 20.00")
+    allow(balance).to receive(:plus).with(20) { 20 }
+    expect(transaction.credit(20)).to eq("#{time} || 20.00 || || 20.00")
   end
 
   it 'returns a string showing the transaction' do
-    expect(transaction.debit(20)).to eq("\n#{time} || || 20.00 || -20.00")
+    allow(balance).to receive(:minus).with(20) { -20 }
+    expect(transaction.debit(20)).to eq("#{time} || || 20.00 || -20.00")
   end
 
 end

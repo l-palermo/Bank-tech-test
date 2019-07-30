@@ -6,7 +6,6 @@ RSpec.describe Account do
   it 'allow the user to make a deposit and see the statement' do
     account = Account.new
     account.deposit(20)
-    account.statement
-    expect(account._statement).to eq("date || credit || debit || balance\n#{time} || 20.00 || || 20.00")
+    expect(account.statement).to eq("date || credit || debit || balance\n#{time} || 20.00 || || 20.00")
   end
 end
