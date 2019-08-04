@@ -5,8 +5,7 @@ RSpec.describe Statement do
   subject(:time) { Time.now.strftime('%d/%m/%y') }
 
   it 'it build a statement string' do
-    statement.history << "#{time} || 20.00 || || 20.00"
-    statement.history << "#{time} || 20.00 || || 40.00"
-    expect(statement.create).to eq("date || credit || debit || balance\n#{time} || 20.00 || || 40.00\n#{time} || 20.00 || || 20.00")
+    history = [{ time: time, credit: 20, debit: '', balance: 20 }, { time: time, credit: 20, debit: '', balance: 40 }]
+    expect(statement.create(history)).to eq("date || credit || debit || balance\n#{time} || 20.00 || || 40.00 \n#{time} || 20.00 || || 20.00 ")
   end
 end

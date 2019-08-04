@@ -1,15 +1,18 @@
 # Class Statement
 class Statement
-  def initialize
-    @_history = []
+  def create(acc_history)
+    "date || credit || debit || balance\n" + data_format(acc_history)
   end
 
-  def history
-    @_history
+  private
+
+  def data_format(acc_history)
+    acc_history.reverse_each.map do |trans|
+      "#{trans[:time]} || #{decimal(trans[:credit])}|| #{decimal(trans[:debit])}|| #{decimal(trans[:balance])}"
+    end.join("\n")
   end
 
-  def create
-    "date || credit || debit || balance\n" +
-      @_history.reverse_each.map { |trans| trans }.join("\n")
+  def decimal(money)
+    return money.to_s + '.00 ' if money.is_a?(Integer)
   end
 end

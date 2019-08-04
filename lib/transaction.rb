@@ -1,19 +1,21 @@
 require './lib/balance'
 # class Transaction
 class Transaction
-  attr_reader :balance
-
-  def initialize(balance = Balance.new)
-    @balance = balance
+  def credit(ammount, balance)
+    { time: time_format, credit: ammount, debit: '', balance: balance }
   end
 
-  def credit(arg)
-    "#{time_format} || #{arg}.00 || || #{@balance.plus(arg)}.00"
+  def debit(ammount, balance)
+    { time: time_format, credit: '', debit: ammount, balance: balance }
   end
 
-  def debit(arg)
-    "#{time_format} || || #{arg}.00 || #{@balance.minus(arg)}.00"
-  end
+  # def credit(arg)
+  #   "#{time_format} || #{arg}.00 || || #{@balance.plus(arg)}.00"
+  # end
+
+  # def debit(arg)
+  #   "#{time_format} || || #{arg}.00 || #{@balance.minus(arg)}.00"
+  # end
 
   private
 
