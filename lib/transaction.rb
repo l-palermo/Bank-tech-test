@@ -9,14 +9,6 @@ class Transaction
     { time: time_format, credit: '', debit: ammount, balance: balance }
   end
 
-  # def credit(arg)
-  #   "#{time_format} || #{arg}.00 || || #{@balance.plus(arg)}.00"
-  # end
-
-  # def debit(arg)
-  #   "#{time_format} || || #{arg}.00 || #{@balance.minus(arg)}.00"
-  # end
-
   private
 
   def time_format
